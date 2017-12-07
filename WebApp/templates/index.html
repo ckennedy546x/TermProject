@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <!-- Used a bootstrap template from: https://startbootstrap.com/template-categories/all/. Below are the meta tags and fonts for the temple, 
+    styles for the template, and css directly from uploading the template. -->
+  <head> 
 
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -31,7 +34,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <img href="img\logo.png"><a class="navbar-brand js-scroll-trigger" href="#page-top">MainStreeter</a></img>
+        <img href="{{ url_for('static', filename='img/logo.png') }}"><a class="navbar-brand js-scroll-trigger" href="#page-top">MainStreeter</a></img>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -60,13 +63,16 @@
       <div class="container my-auto">
         <div class="row">
             <div class="col-lg-12 mx-auto text-center">
+            <!--  <form> element defines a form that is used to collect user input-->
             <form method="POST" name="travelRequest">
-                <span>Date:</span>
-                <input class="form-control" type="text" name="date" id="date">
-                <br />
+                <span>Date:</span> <!-- Used for style -->
+                u7
                 <span>Pick Up Time (in hours):</span>
+                <!-- A class defined by Bootstrap -->
+                <!-- Elements of type "text" create basic single-line text fields.-->
+                <!-- Name is created by inputs and ID is a unique name to cal upon it.-->
                 <input class="form-control" type="text" name="pickup" id="put">
-                <br />
+                <br /> <!-- Element produces a line break in text.-->
                 <span>Pick Up Address:</span>
                 <input class="form-control" type="text" name="pickupAddress" id="pua">
                 <br />
@@ -76,22 +82,24 @@
                 <span>How long will you be there (in hours)?:</span>
                 <input class="form-control" type="text" name="waitTime" id="wait">
                 <br />
-                <input type="submit">
+                <input type="submit"> <!-- submit buttom to submit the form-->
         </form>
             </div>
 
         </div>
       </div>
+      <!-- Created a table for the inputs and outputs of the trip evaluator. -->
     </header>
 
     <section class="bg-primary" id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 mx-auto text-center">
-
+              <!-- Element to define a table -->
               <table style="width:100%; color:white;" id="resultsTable" class="table">
-                  <tr>
-                    <th scope="col">Date</th> 
+                  <tr> <!-- Element to define a table row(tr)-->
+                    <!-- Element to define a table heading (th)-->
+                    <th scope="col">Date</th>  
                     <th scope="col">Pick Up Time</th>
                     <th scope="col">Pick Up Address</th> 
                     <th scope="col">Drop Off Address</th>
@@ -102,9 +110,10 @@
                     <th scope="col">Trip Distance</th>
                     <th scope="col">Trip Time</th> 
                     <th scope="col">Profitable</th>
-                  </tr>
+                  </tr> <!-- Element to define a table row-->
                   {% for submission in submissions %}
-                  <tr>
+                  <tr> <!-- Element to define a table row-->
+                      <!-- Element to define a table data (td)-->
                       <td>{{ submission.date }}</td>
                       <td>{{ submission.pickup }}</td>
                       <td>{{ submission.pickupAddress }}</td>
@@ -116,14 +125,14 @@
                       <td>{{ submission.distance }}</td>
                       <td>{{ submission.duration }}</td>
                       <td>{{ submission.profitable }}</td>
-                  </tr>
+                  </tr> <!-- Element to define a table row-->
                   {% endfor %}
-                </table>
+                </table> <!-- End of table-->
           </div>
         </div>
       </div>
     </section>
-
+    <!-- More bootstrap template -->
     <!-- <section id="services">
       <div class="container">
         <div class="row">
